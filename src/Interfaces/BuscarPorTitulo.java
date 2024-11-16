@@ -6,7 +6,7 @@ package Interfaces;
 
 /**
  *
- * @author Moises Liota
+ * @author Andrea
  */
 public class BuscarPorTitulo extends javax.swing.JFrame {
 
