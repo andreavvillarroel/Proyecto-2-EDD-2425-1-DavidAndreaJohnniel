@@ -6,10 +6,10 @@ package Interfaces;
 
 /**
  *
- * @author Moises Liota
+ * @author Andrea
  */
 public class Menu extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Menu
      */
@@ -26,21 +26,148 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        registro = new javax.swing.JButton();
+        busquedaNombre = new javax.swing.JButton();
+        busquedaTitulo = new javax.swing.JButton();
+        mostrarAntepasados = new javax.swing.JButton();
+        busquedaGeneraciones = new javax.swing.JButton();
+        salir = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 102, 0));
+        jLabel1.setText("Menú");
+
+        registro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        registro.setText("Ver Registro");
+
+        busquedaNombre.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        busquedaNombre.setText("Búsqueda por nombre");
+        busquedaNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                busquedaNombreActionPerformed(evt);
+            }
+        });
+
+        busquedaTitulo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        busquedaTitulo.setText("Búsqueda por título");
+        busquedaTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                busquedaTituloActionPerformed(evt);
+            }
+        });
+
+        mostrarAntepasados.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mostrarAntepasados.setText("Mostrar Antepasados");
+        mostrarAntepasados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarAntepasadosActionPerformed(evt);
+            }
+        });
+
+        busquedaGeneraciones.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        busquedaGeneraciones.setText("Lista de integrantes de una generación");
+        busquedaGeneraciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                busquedaGeneracionesActionPerformed(evt);
+            }
+        });
+
+        salir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        salir.setText("Salir");
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(144, 144, 144)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(83, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(registro, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mostrarAntepasados, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(busquedaGeneraciones, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(busquedaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(busquedaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addComponent(jLabel1)
+                .addGap(27, 27, 27)
+                .addComponent(registro)
+                .addGap(18, 18, 18)
+                .addComponent(busquedaNombre)
+                .addGap(18, 18, 18)
+                .addComponent(busquedaTitulo)
+                .addGap(18, 18, 18)
+                .addComponent(mostrarAntepasados)
+                .addGap(18, 18, 18)
+                .addComponent(busquedaGeneraciones)
+                .addGap(18, 18, 18)
+                .addComponent(salir)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        // **Botón para salir del sistema*/
+        System.out.print("Hasta Luego");
+        System.exit(0);
+    }//GEN-LAST:event_salirActionPerformed
+
+    private void busquedaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaNombreActionPerformed
+        // **Botón para ir hasta la pestana de búsqueda por nombre*/
+        BuscarPorNombre buscarnombre = new BuscarPorNombre();
+        this.dispose();
+    }//GEN-LAST:event_busquedaNombreActionPerformed
+
+    private void busquedaTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaTituloActionPerformed
+        // **Botón para ir hasta la pestana de búsqueda por título*/
+        BuscarPorTitulo buscartitulo = new BuscarPorTitulo();
+        this.dispose();
+    }//GEN-LAST:event_busquedaTituloActionPerformed
+
+    private void mostrarAntepasadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarAntepasadosActionPerformed
+        // **Botón para ir hasta la pestana de Mostrar Antepasados*/
+        MostrarAntepasados antepasados = new MostrarAntepasados();
+        this.dispose();
+    }//GEN-LAST:event_mostrarAntepasadosActionPerformed
+
+    private void busquedaGeneracionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaGeneracionesActionPerformed
+        // **Botón para ir hasta la pestana de búsqueda por Generación*/
+        BuscarPorGeneraciones buscargeneraciones = new BuscarPorGeneraciones();
+        this.dispose();
+    }//GEN-LAST:event_busquedaGeneracionesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +205,13 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton busquedaGeneraciones;
+    private javax.swing.JButton busquedaNombre;
+    private javax.swing.JButton busquedaTitulo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton mostrarAntepasados;
+    private javax.swing.JButton registro;
+    private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
 }
