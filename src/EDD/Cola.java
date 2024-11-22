@@ -6,7 +6,12 @@ package EDD;
 
 /**
  *
- * @author Moises Liota
+ * @author David
+ */
+/**
+ * Representa una cola, una estructura de datos FIFO (First-In-First-Out).
+ *
+ * Esta clase permite agregar elementos al final de la cola (encolar) y eliminar elementos del principio (desencolar).
  */
 public class Cola {
     private Nodo head;
@@ -46,11 +51,11 @@ public class Cola {
     public boolean colaVacia() {
         return this.head == null;
     }
-    
-    //Hasta aqui primer commir
 
-    
-    //Segundo commit
+    /**
+     * Agrega un nuevo elemento al final de la cola.
+     * @param dato El elemento a agregar.
+     */
     public void encolar(Object dato) {
         Nodo pNew = new Nodo(dato);
         if (this.colaVacia()) {
@@ -63,6 +68,10 @@ public class Cola {
         size++;
     }
 
+    /**
+     * Elimina y devuelve el elemento al principio de la cola.
+     * @return El elemento eliminado, o `null` si la cola está vacía.
+     */
     public Object desencolar() {
         if (this.colaVacia()) {
             Object quitar = this.head.getDato();
@@ -80,16 +89,18 @@ public class Cola {
 
     }
 
-    //Hasta aqui segundo commit
-    
-    //Tercer commit hasta el final
+     /**
+     * Elimina todos los elementos de la cola.
+     */
     public void destruir() {
         head = null;
         tail = null;
         size = 0;
     }
 
-    //Mostrar los elementos de una tail
+    /**
+     * Enlista los elementos de la cola en orden de llegada.
+     */
     public void listar() {
         Nodo aux = head;
         String pila = "COLA:\n";

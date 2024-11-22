@@ -8,6 +8,9 @@ package ClasesPrincipales;
  *
  * @author David
  */
+/**
+ * Representa a una persona con información genealógica.
+ */
 public class Persona {
     private String nombre;
     private String numeral;
@@ -21,6 +24,10 @@ public class Persona {
     private String comentariosVida;
     private String comentariosMuerte;
 
+    /**
+     * Constructor que inicializa todos los atributos con valores nulos.
+     * @param nombre El nombre de la persona.
+     */
     public Persona(String nombre) {
         this.nombre = nombre;
         this.numeral = null;
@@ -34,7 +41,10 @@ public class Persona {
         this.comentariosVida = null;
         this.comentariosMuerte = null;
     }
-
+    /**
+     *   Constructor que inicializa todos los atributos con los valores proporcionados.
+     *
+     */
     public Persona(String nombre, String numeral, String padre, String madre, String mote, String titulo, String esposa, String colorOjos, String colorCabello, String comentariosVida, String comentariosMuerte) {
         this.nombre = nombre;
         this.numeral = numeral;
@@ -49,7 +59,9 @@ public class Persona {
         this.comentariosMuerte = comentariosMuerte;
     }
     
-    
+    /**
+     *   Getters y setters para cada atributo
+     */
 
     public String getNombre() {
         return nombre;
@@ -146,7 +158,11 @@ public class Persona {
         
         return this.nombre + " " + this.numeral;
     }
-
+    
+    /**
+     * Devuelve una representación en cadena de la persona, incluyendo todos sus atributos.
+     * @return La representación en cadena de la persona.
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

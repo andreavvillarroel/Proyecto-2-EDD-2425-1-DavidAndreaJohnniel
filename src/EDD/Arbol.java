@@ -7,11 +7,13 @@ package EDD;
 import ClasesPrincipales.Persona;
 
 /**
- *
- * @author Moises Liota
+ * Representa un árbol genealógico, donde cada nodo contiene información sobre una persona.
+ * Permite insertar, buscar y recorrer el árbol de forma eficiente.
  */
 public class Arbol {
-
+     /**
+     * Raíz del árbol genealógico.
+     */
     private NodoA root;
 
     public Arbol() {
@@ -34,7 +36,12 @@ public class Arbol {
         NodoA newRoot = new NodoA(persona);
         this.setRoot(newRoot);
     }
-
+    /**
+     * Inserta una nueva persona en el árbol, como hijo del nodo padre especificado.
+     * @param padre El nodo padre donde se insertará el nuevo nodo.
+     * @param persona La persona a insertar.
+     * @return `true` si la inserción fue exitosa, `false` si la persona ya existe.
+     */
     public boolean insertar(NodoA padre, Persona persona) {
         String clave;
 
@@ -60,7 +67,11 @@ public class Arbol {
         
         return false;
     }
-
+    /**
+     * Busca un nodo en el árbol por su nombre o mote.
+     * @param nombre El nombre o mote a buscar.
+     * @return El nodo encontrado, o `null` si no se encuentra.
+     */
     public NodoA buscarPorNombreClave(String nombre) {
         if (this.isEmpty()) {
             return null;
@@ -101,7 +112,10 @@ public class Arbol {
 
         return null;
     }
-
+    /**
+     * Obtiene el nivel máximo del árbol.
+     * @return El nivel máximo del árbol.
+     */
     public int obtenerNivelMaximo() {
         if (this.isEmpty()) {
             return 0; // El árbol está vacío
@@ -135,6 +149,11 @@ public class Arbol {
         return nivelMaximo;
     }
 
+    /**
+     * Lista todos los nodos que se encuentran en un nivel específico del árbol.
+     * @param nivelBuscado El nivel a buscar.
+     * @return Una lista con los nodos encontrados en el nivel especificado.
+     */
     public Lista listarNodosEnNivel(int nivelBuscado) {
         Lista nodosNivel = new Lista();
 
@@ -171,6 +190,9 @@ public class Arbol {
         return nodosNivel;
     }
 
+    /**
+     * Muestra el árbol por niveles.
+     */
     public void mostrarArbolPorNiveles() {
         if (this.isEmpty()) {
             System.out.println("El árbol está vacío.");

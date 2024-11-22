@@ -36,20 +36,30 @@ public class Lista {
         this.size = size;
     }
     
-    //Primitivas
+    /**Primitivas
+     * 
+     */
     
-    //Funcion para verificar si la lista es vacia
+    /**Funcion para verificar si la lista es vacia
+     * 
+     * @return 
+     */
     public boolean isEmpty(){
         return this.pFirst == null;
     }
     
-    //Destructor
+    /**Destructor
+     * 
+     */
     public void destruir(){
         pFirst = null;
         size = 0;
     }
     
-    //Metodo para insertar al final
+    /**Metodo para insertar al final
+     * 
+     * @param dato 
+     */
     public void InsertarFinal(Object dato){
         Nodo pNew = new Nodo(dato);
         if(isEmpty()){
@@ -64,6 +74,9 @@ public class Lista {
         size++;
     }
     
+    /**
+     * Muestra los elementos de la lista en un cuadro de diálogo.
+    */
     public void mostrar(){
         if (!isEmpty()){
             Nodo aux = pFirst;
@@ -79,7 +92,10 @@ public class Lista {
         }
     }
     
-    //Funcion para eliminar al inicio
+    /**Funcion para eliminar al inicio
+     * 
+     * @return 
+     */
     public boolean eliminarInicio(){
         if(!isEmpty()){
             pFirst = pFirst.getPnext();
@@ -89,7 +105,9 @@ public class Lista {
             return false;
         }
     }
-    
+    /**Función para eliminar al final
+     * 
+     */
     public void eliminarFinal(){
         if(!isEmpty()){
             if (getSize()==1) {
@@ -105,7 +123,11 @@ public class Lista {
         }  
     }
     
-       // Funcion para buscar un elemento en la lista
+    /**Funcion para buscar un elemento en la lista
+     * 
+     * @param referencia
+     * @return 
+     */
     public boolean buscar(Object referencia){
         Nodo aux = pFirst;
         boolean encontrado = false;
@@ -119,7 +141,11 @@ public class Lista {
         }
         return encontrado;
     }
-    
+    /**
+    * Obtiene el valor del elemento en la posición especificada de la lista.
+    * @param posicion El índice del elemento a obtener.
+    * @return El valor del elemento en la posición indicada, o `null` si la posición es inválida.
+    */
     public Object getValor(int posicion){
 
         if(posicion>=0 && posicion<size){
@@ -137,6 +163,10 @@ public class Lista {
         return null;
     }
     
+    /**
+ * Convierte la lista en una cadena de texto, separando los elementos por líneas.
+ * @return Una cadena de texto que representa los elementos de la lista, o "Lista vacía" si la lista está vacía.
+ */
     public String transformar(){
         if(!isEmpty()){
             
