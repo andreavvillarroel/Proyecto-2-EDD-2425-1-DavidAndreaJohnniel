@@ -4,6 +4,8 @@
  */
 package Interfaces;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Andrea
@@ -142,6 +144,7 @@ public class Menu extends javax.swing.JFrame {
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         // **Botón para salir del sistema*/
         System.out.print("Hasta Luego");
+        JOptionPane.showMessageDialog(null, "Hasta Luego");
         System.exit(0);
     }//GEN-LAST:event_salirActionPerformed
 

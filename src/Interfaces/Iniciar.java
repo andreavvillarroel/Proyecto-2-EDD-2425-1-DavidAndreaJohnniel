@@ -4,17 +4,26 @@
  */
 package Interfaces;
 
+import ClasesPrincipales.ArbolGenealogico;
+import Funciones.Cargar;
+import Funciones.FileChooser;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Andrea
  */
 public class Iniciar extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Iniciar
-     */
+    private FileChooser fileChooser = new FileChooser(this);
+    private Cargar cargarJSON = new Cargar();
+    public static ArbolGenealogico arbolG = new ArbolGenealogico();
+
     public Iniciar() {
         initComponents();
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
     }
 
     /**
@@ -27,7 +36,7 @@ public class Iniciar extends javax.swing.JFrame {
     private void initComponents() {
 
         botonInicio = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        iniciar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -35,11 +44,11 @@ public class Iniciar extends javax.swing.JFrame {
 
         botonInicio.setBackground(new java.awt.Color(0, 0, 0));
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setText("Iniciar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        iniciar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        iniciar.setText("Iniciar");
+        iniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                iniciarActionPerformed(evt);
             }
         });
 
@@ -65,7 +74,7 @@ public class Iniciar extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(14, 14, 14))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, botonInicioLayout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(iniciar)
                         .addGap(165, 165, 165))))
         );
         botonInicioLayout.setVerticalGroup(
@@ -76,7 +85,7 @@ public class Iniciar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(iniciar)
                 .addGap(113, 113, 113))
         );
 
@@ -94,9 +103,21 @@ public class Iniciar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarActionPerformed
+        String ruta = fileChooser.abrirArchivo();
+        cargarJSON.cargar(ruta);
+        if (cargarJSON.cargaExitosa()) {
+            arbolG.setArbol(cargarJSON.getArbol());
+            arbolG.setHashTable(cargarJSON.getHashTable());
+            
+            Menu menu = new Menu();
+            this.dispose();
+//            cargarJSON.getArbol().mostrarArbolPorNiveles();
+            //System.out.println(cargarJSON.getArbol().obtenerNivelMaximo());
+        }else{
+            JOptionPane.showMessageDialog(null, "Hay errores en el JSON");
+        }
+    }//GEN-LAST:event_iniciarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,7 +156,7 @@ public class Iniciar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel botonInicio;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton iniciar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

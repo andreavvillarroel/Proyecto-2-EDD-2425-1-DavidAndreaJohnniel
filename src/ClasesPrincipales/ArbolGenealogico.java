@@ -14,6 +14,7 @@ import EDD.HashTable;
 public class ArbolGenealogico {
     private HashTable hashTable;
     private Arbol arbol;
+    private String nombreLinaje;
 
     public ArbolGenealogico() {
         this.hashTable = new HashTable(100);
@@ -35,5 +36,15 @@ public class ArbolGenealogico {
     public void setArbol(Arbol arbol) {
         this.arbol = arbol;
     } 
+
+    public String getNombreLinaje() {
+        return nombreLinaje;
+    }
+
+    public void setNombreLinaje(String nombreLinaje) {
+        this.nombreLinaje = nombreLinaje;
+    }
+    
+    
     
 }

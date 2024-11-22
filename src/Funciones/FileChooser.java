@@ -4,10 +4,48 @@
  */
 package Funciones;
 
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author Moises Liota
  */
 public class FileChooser {
+    private JFrame ventana;
+
+    public FileChooser(JFrame ventana) {
+        this.ventana = ventana;
+    }
+    
+    public String abrirArchivo(){
+        JFileChooser fc = new JFileChooser();
+
+        
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos JSON (*.json)", "json");
+
+        
+        fc.setFileFilter(filtro);
+
+        
+        int seleccion = fc.showOpenDialog(ventana);
+
+        
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+
+            
+            File fichero = fc.getSelectedFile();
+            return fichero.getAbsolutePath();
+
+        } else {
+            
+            JOptionPane.showMessageDialog(ventana, "No se ha seleccionado ningún archivo.");
+            return null;
+        }
+    }
+    
     
 }

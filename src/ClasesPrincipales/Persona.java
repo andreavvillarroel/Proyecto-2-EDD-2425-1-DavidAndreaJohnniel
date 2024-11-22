@@ -35,6 +35,22 @@ public class Persona {
         this.comentariosMuerte = null;
     }
 
+    public Persona(String nombre, String numeral, String padre, String madre, String mote, String titulo, String esposa, String colorOjos, String colorCabello, String comentariosVida, String comentariosMuerte) {
+        this.nombre = nombre;
+        this.numeral = numeral;
+        this.padre = padre;
+        this.madre = madre;
+        this.mote = mote;
+        this.titulo = titulo;
+        this.esposa = esposa;
+        this.colorOjos = colorOjos;
+        this.colorCabello = colorCabello;
+        this.comentariosVida = comentariosVida;
+        this.comentariosMuerte = comentariosMuerte;
+    }
+    
+    
+
     public String getNombre() {
         return nombre;
     }
