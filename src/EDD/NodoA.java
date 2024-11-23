@@ -50,16 +50,11 @@ public class NodoA {
         this.hijos = hijos;
     }
     
-    /**
-     * Inserta un nuevo hijo al final de la lista de hijos, si no existe previamente.
-     * @param hijo El nodo hijo a insertar.
-     */
     public void insertarHijo(NodoA hijo){
         if(!this.buscar(hijo)){
             this.hijos.InsertarFinal(hijo);
         }
     }
-    
     /**
      * Busca un hijo en la lista de hijos comparando el atributo 'nameUnique' de la persona.
      * @param hijo El nodo hijo a buscar.

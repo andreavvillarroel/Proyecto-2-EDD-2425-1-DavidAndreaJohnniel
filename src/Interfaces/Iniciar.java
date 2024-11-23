@@ -15,8 +15,8 @@ import javax.swing.JOptionPane;
  */
 public class Iniciar extends javax.swing.JFrame {
 
-    private FileChooser fileChooser = new FileChooser(this);
-    private Cargar cargarJSON = new Cargar();
+    private final FileChooser fileChooser = new FileChooser(this);
+    private final Cargar cargarJSON = new Cargar();
     public static ArbolGenealogico arbolG = new ArbolGenealogico();
 
     public Iniciar() {
@@ -107,8 +107,10 @@ public class Iniciar extends javax.swing.JFrame {
         String ruta = fileChooser.abrirArchivo();
         cargarJSON.cargar(ruta);
         if (cargarJSON.cargaExitosa()) {
+            
             arbolG.setArbol(cargarJSON.getArbol());
             arbolG.setHashTable(cargarJSON.getHashTable());
+            arbolG.setNombreLinaje(cargarJSON.getNombreLinaje());
             
             Menu menu = new Menu();
             this.dispose();

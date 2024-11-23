@@ -4,6 +4,9 @@
  */
 package Interfaces;
 
+import Funciones.Cargar;
+import Funciones.FileChooser;
+import static Interfaces.Iniciar.arbolG;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,6 +20,9 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
     }
 
     /**
@@ -35,18 +41,28 @@ public class Menu extends javax.swing.JFrame {
         busquedaTitulo = new javax.swing.JButton();
         mostrarAntepasados = new javax.swing.JButton();
         busquedaGeneraciones = new javax.swing.JButton();
+        cargarJSON = new javax.swing.JButton();
         salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 102, 0));
         jLabel1.setText("Menú");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 155, -1));
 
         registro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         registro.setText("Ver Registro");
+        registro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registroActionPerformed(evt);
+            }
+        });
+        jPanel1.add(registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 257, -1));
 
         busquedaNombre.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         busquedaNombre.setText("Búsqueda por nombre");
@@ -55,6 +71,7 @@ public class Menu extends javax.swing.JFrame {
                 busquedaNombreActionPerformed(evt);
             }
         });
+        jPanel1.add(busquedaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 257, -1));
 
         busquedaTitulo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         busquedaTitulo.setText("Búsqueda por título");
@@ -63,6 +80,7 @@ public class Menu extends javax.swing.JFrame {
                 busquedaTituloActionPerformed(evt);
             }
         });
+        jPanel1.add(busquedaTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 257, -1));
 
         mostrarAntepasados.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         mostrarAntepasados.setText("Mostrar Antepasados");
@@ -71,6 +89,7 @@ public class Menu extends javax.swing.JFrame {
                 mostrarAntepasadosActionPerformed(evt);
             }
         });
+        jPanel1.add(mostrarAntepasados, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 257, -1));
 
         busquedaGeneraciones.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         busquedaGeneraciones.setText("Lista de integrantes de una generación");
@@ -79,6 +98,16 @@ public class Menu extends javax.swing.JFrame {
                 busquedaGeneracionesActionPerformed(evt);
             }
         });
+        jPanel1.add(busquedaGeneraciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 257, -1));
+
+        cargarJSON.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        cargarJSON.setText("Cargar JSON");
+        cargarJSON.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cargarJSONActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cargarJSON, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 257, -1));
 
         salir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         salir.setText("Salir");
@@ -87,56 +116,9 @@ public class Menu extends javax.swing.JFrame {
                 salirActionPerformed(evt);
             }
         });
+        jPanel1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 257, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(144, 144, 144)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(registro, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mostrarAntepasados, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(busquedaGeneraciones, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(busquedaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(busquedaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(jLabel1)
-                .addGap(27, 27, 27)
-                .addComponent(registro)
-                .addGap(18, 18, 18)
-                .addComponent(busquedaNombre)
-                .addGap(18, 18, 18)
-                .addComponent(busquedaTitulo)
-                .addGap(18, 18, 18)
-                .addComponent(mostrarAntepasados)
-                .addGap(18, 18, 18)
-                .addComponent(busquedaGeneraciones)
-                .addGap(18, 18, 18)
-                .addComponent(salir)
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 407, 429));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -171,6 +153,30 @@ public class Menu extends javax.swing.JFrame {
         BuscarPorGeneraciones buscargeneraciones = new BuscarPorGeneraciones();
         this.dispose();
     }//GEN-LAST:event_busquedaGeneracionesActionPerformed
+
+    private void cargarJSONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarJSONActionPerformed
+        
+        FileChooser fileChooser = new FileChooser(this);
+        String ruta = fileChooser.abrirArchivo();
+        
+        Cargar cargarArchivoJSON = new Cargar();
+        cargarArchivoJSON.cargar(ruta);
+        
+        if (cargarArchivoJSON.cargaExitosa()) {
+            arbolG.destruir();
+            arbolG.setArbol(cargarArchivoJSON.getArbol());
+            arbolG.setHashTable(cargarArchivoJSON.getHashTable());
+            JOptionPane.showMessageDialog(null, "Carga Exitosa");
+//            cargarJSON.getArbol().mostrarArbolPorNiveles();
+            //System.out.println(cargarJSON.getArbol().obtenerNivelMaximo());
+        }else{
+            JOptionPane.showMessageDialog(null, "Hay errores en el JSON");
+        }
+    }//GEN-LAST:event_cargarJSONActionPerformed
+
+    private void registroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,6 +217,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton busquedaGeneraciones;
     private javax.swing.JButton busquedaNombre;
     private javax.swing.JButton busquedaTitulo;
+    private javax.swing.JButton cargarJSON;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton mostrarAntepasados;

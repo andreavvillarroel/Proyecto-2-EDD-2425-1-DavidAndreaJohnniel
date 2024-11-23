@@ -15,6 +15,9 @@ public class BuscarPorTitulo extends javax.swing.JFrame {
      */
     public BuscarPorTitulo() {
         initComponents();
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
     }
 
     /**

@@ -5,7 +5,10 @@
 package EDD;
 
 import ClasesPrincipales.Persona;
-
+/**
+ *
+ * @author David
+ */
 /**
  * Representa un árbol genealógico, donde cada nodo contiene información sobre una persona.
  * Permite insertar, buscar y recorrer el árbol de forma eficiente.
@@ -31,7 +34,10 @@ public class Arbol {
     public boolean isEmpty() {
         return this.root == null;
     }
-
+    /**Asignar una raíz
+     * 
+     * @param persona 
+     */
     public void asignarRaiz(Persona persona) {
         NodoA newRoot = new NodoA(persona);
         this.setRoot(newRoot);
@@ -235,5 +241,4 @@ public class Arbol {
 
         System.out.println();
     }
-
 }

@@ -8,8 +8,9 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Moises Liota
+ * @author David
  */
+
 public class Lista {
     private Nodo pFirst;
     private int size; 
@@ -164,9 +165,9 @@ public class Lista {
     }
     
     /**
- * Convierte la lista en una cadena de texto, separando los elementos por líneas.
- * @return Una cadena de texto que representa los elementos de la lista, o "Lista vacía" si la lista está vacía.
- */
+     * Convierte la lista en una cadena de texto, separando los elementos por líneas.
+    * @return Una cadena de texto que representa los elementos de la lista, o "Lista vacía" si la lista está vacía.
+     */
     public String transformar(){
         if(!isEmpty()){
             

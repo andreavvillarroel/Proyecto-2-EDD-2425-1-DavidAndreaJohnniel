@@ -15,6 +15,9 @@ public class BuscarPorGeneraciones extends javax.swing.JFrame {
      */
     public BuscarPorGeneraciones() {
         initComponents();
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
     }
 
     /**

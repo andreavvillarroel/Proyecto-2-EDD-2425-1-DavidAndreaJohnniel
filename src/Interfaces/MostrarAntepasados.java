@@ -15,6 +15,9 @@ public class MostrarAntepasados extends javax.swing.JFrame {
      */
     public MostrarAntepasados() {
         initComponents();
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
     }
 
     /**

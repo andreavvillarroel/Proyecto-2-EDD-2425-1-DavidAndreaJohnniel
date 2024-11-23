@@ -17,20 +17,32 @@ import java.io.IOException;
 
 /**
  *
- * @author Moises Liota
+ * @author David
  */
+/**  
+ * La clase Cargar maneja la carga de datos desde un archivo JSON  
+ * y organiza esta información en un árbol y una tabla hash.  
+ */  
 public class Cargar {
     private Arbol arbol;
     private HashTable hashTable;
     private String nombreLinaje;
     private int errores = 0;
     private int nombreRepetido = 0;
-
+    
+    
+    /**
+     * Constructor por defecto que inicializa el árbol genealógico y la tabla hash.
+     */
     public Cargar() {
         this.arbol = new Arbol();
         this.hashTable = new HashTable(100);
     }
-
+    
+    /**Getters y setters
+     * 
+     * @return 
+     */
     public Arbol getArbol() {
         return arbol;
     }
@@ -71,10 +83,20 @@ public class Cargar {
         this.nombreRepetido = nombreRepetido;
     }
     
+    /**
+     * Verifica si la carga de datos fue exitosa.
+     *
+     * @return `true` si la carga fue exitosa, `false` en caso contrario.
+     */
     public boolean cargaExitosa(){
         return errores == 0 && nombreRepetido == 0;
     }
-    
+        
+     /**
+     * Carga datos de un archivo JSON.
+     *
+     * @param rutaArchivo La ruta del archivo JSON a cargar.
+     */
     public void cargar(String rutaArchivo) {
         this.setErrores(0);
         this.setNombreRepetido(0);
@@ -109,7 +131,12 @@ public class Cargar {
             System.out.println("Error al leer el archivo: " + e.getMessage());
         }
     }
-    
+        
+    /**
+     * Agrega una persona al árbol genealógico.
+     *
+     * @param personaObj El objeto JSON que representa a la persona.
+     */
     private void agregarArbol(JsonObject personaObj){
         String nombreCompleto = personaObj.keySet().iterator().next();
         JsonArray atributos = personaObj.getAsJsonArray(nombreCompleto);
@@ -143,7 +170,12 @@ public class Cargar {
             }
         }
     }
-
+    
+     /**
+     * Agrega una persona a la tabla hash.
+     *
+     * @param personaObj El objeto JSON que representa a la persona.
+     */
     private void agregarHashTable(JsonObject personaObj) {
         String nombreCompleto = personaObj.keySet().iterator().next();
         JsonArray atributos = personaObj.getAsJsonArray(nombreCompleto);
@@ -158,7 +190,14 @@ public class Cargar {
             this.hashTable.insertar(clave, personaNueva);
         }
     }
-
+    
+    /**
+     * Crea una instancia de la clase `Persona` a partir de un objeto JSON.
+     *
+     * @param nombreCompleto El nombre completo de la persona.
+     * @param atributos Los atributos de la persona en formato JSON.
+     * @return Una instancia de la clase `Persona`.
+     */
     private Persona crearPersona(String nombreCompleto, JsonArray atributos) {
         String numeral = null;
         String padre = null;

@@ -6,23 +6,23 @@ package ClasesPrincipales;
 
 import EDD.Arbol;
 import EDD.HashTable;
+import EDD.Lista;
 
 /**
  *
  * @author David
  */
-
 /**
  * Representa un árbol genealógico, almacenando información sobre las relaciones familiares de un linaje específico.
  * Esta clase utiliza una tabla hash (`HashTable`) para mapear individuos a sus nodos correspondientes en la estructura del árbol (`Arbol`).
  * 
  */
 public class ArbolGenealogico {
+
     private HashTable hashTable;
     private Arbol arbol;
     private String nombreLinaje;
 
-    
     /**
      * Construye una nueva instancia de `ArbolGenealogico`.
      * Inicializa la `HashTable` con una capacidad de 100 y crea una nueva instancia de `Arbol`.
@@ -80,6 +80,45 @@ public class ArbolGenealogico {
         this.nombreLinaje = nombreLinaje;
     }
     
+    /** Destruye el árbol
+     * 
+     */
+    public void destruir() {
+        this.arbol.destruir();
+        this.hashTable.destruir();
+    }
     
     
+   /** Realiza búsqueda por nombre
+    * 
+    * @param resultado
+    * @param nombre
+    * @return 
+    */
+    public Persona[] buscarNombre(Persona[] resultado, String nombre) {
+        Lista personasNombre = this.hashTable.buscarNombre(nombre);
+        
+        if (resultado != null) {
+            int maxNuevo = resultado.length + personasNombre.getSize();
+            Persona[] resultadoNuevo = new Persona[maxNuevo];
+            
+            for (int i = 0; i < resultado.length; i++) {
+                resultadoNuevo[i] = resultado[i];
+            }
+            
+            for (int i = resultado.length; i < maxNuevo; i++) {
+                resultadoNuevo[i] = (Persona) personasNombre.getValor(i-resultado.length);    
+            }
+            
+            return resultadoNuevo;
+        } else {
+           resultado = new Persona[personasNombre.getSize()];
+           for (int i = 0; i < personasNombre.getSize(); i++) {
+                resultado[i] = (Persona) personasNombre.getValor(i);
+            }
+           
+           return resultado;
+        }
+    }
+
 }
