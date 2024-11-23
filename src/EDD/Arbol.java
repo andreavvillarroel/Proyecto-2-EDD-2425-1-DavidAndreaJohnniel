@@ -241,4 +241,8 @@ public class Arbol {
 
         System.out.println();
     }
+
+    public void destruir() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
