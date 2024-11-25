@@ -136,7 +136,7 @@ public class HashTable {
                     Persona personaActual = (Persona) tabla[i].getValor(j);
                     if (personaActual.getTitulo() != null) {
                         if (personaActual.getTitulo().toLowerCase().contains(titulo.toLowerCase())) {
-                            resultado.InsertarFinal(personaActual);
+                            resultado.InsertarFinal(personaActual.getNameUnique());
                         }
                     }
                 }
@@ -171,6 +171,22 @@ public class HashTable {
         }
 
         System.out.println(tablaStr);
+    }
+    
+    public Lista titulos(){
+        Lista titulos = new Lista();
+        for (int i = 0; i < max; i++) {
+            if(!tabla[i].isEmpty()){
+                for (int j = 0; j < tabla[i].getSize(); j++) {
+                    Persona personaActual = (Persona) tabla[i].getValor(j);
+                    if(personaActual.getTitulo() != null){
+                        titulos.InsertarFinal(personaActual.getTitulo());
+                    }   
+                }
+            }
+        }
+        
+        return titulos;
     }
 
 }

@@ -7,6 +7,7 @@ package Funciones;
 import ClasesPrincipales.Persona;
 import EDD.Arbol;
 import EDD.NodoA;
+import Interfaces.BuscarPorNombre;
 import Interfaces.Menu;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
@@ -18,14 +19,17 @@ import org.graphstream.graph.implementations.SingleGraph;
 import org.graphstream.ui.swing_viewer.ViewPanel;
 import org.graphstream.ui.view.Viewer;
 
-public class MostrarArbol extends JFrame {
+public class MostrarDesc extends JFrame {
 
     private Arbol arbol;
     private Viewer visor;
     private ViewPanel panelVista;
+    private BuscarPorNombre buscarN;
 
-    public MostrarArbol(Arbol arbol) {
+    public MostrarDesc(Arbol arbol, BuscarPorNombre buscarN) {
         this.arbol = arbol;
+        this.buscarN = buscarN;
+        this.buscarN.setVisible(false);
         configurarInterfaz();
         inicializarVisor();
         agregarBotonRegresar();
@@ -97,9 +101,6 @@ public class MostrarArbol extends JFrame {
         botonRegresar.addActionListener(e -> {
             cerrarVisor();
             dispose();
-            // Simulación de abrir menú principal (suponiendo que ya exista una clase 'Menu')
-            Menu menuPrincipal = new Menu();
-            menuPrincipal.setVisible(true);
         });
         add(botonRegresar, BorderLayout.SOUTH);
     }
@@ -114,6 +115,6 @@ public class MostrarArbol extends JFrame {
             panelVista = null;
         }
 
-        Menu menu = new Menu();
+        this.buscarN.setVisible(true);
     }
 }

@@ -6,6 +6,7 @@ package Interfaces;
 
 import Funciones.Cargar;
 import Funciones.FileChooser;
+import Funciones.MostrarArbol;
 import static Interfaces.Iniciar.arbolG;
 import javax.swing.JOptionPane;
 
@@ -125,7 +126,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         // **Botón para salir del sistema*/
-        System.out.print("Hasta Luego");
+        
         JOptionPane.showMessageDialog(null, "Hasta Luego");
         System.exit(0);
     }//GEN-LAST:event_salirActionPerformed
@@ -138,8 +139,12 @@ public class Menu extends javax.swing.JFrame {
 
     private void busquedaTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaTituloActionPerformed
         // **Botón para ir hasta la pestana de búsqueda por título*/
-        BuscarPorTitulo buscartitulo = new BuscarPorTitulo();
+        if(!arbolG.opcionesTitulo().isEmpty()){
+            BuscarPorTitulo buscartitulo = new BuscarPorTitulo();
         this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "No hay titulos nobiliarios");
+        }
     }//GEN-LAST:event_busquedaTituloActionPerformed
 
     private void mostrarAntepasadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarAntepasadosActionPerformed
@@ -175,7 +180,10 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_cargarJSONActionPerformed
 
     private void registroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroActionPerformed
-        // TODO add your handling code here:
+        System.setProperty("org.graphstream.ui", "swing");
+            MostrarArbol mostrar = new MostrarArbol(arbolG.getArbol());
+            mostrar.setVisible(true);
+            this.dispose();
     }//GEN-LAST:event_registroActionPerformed
 
     /**

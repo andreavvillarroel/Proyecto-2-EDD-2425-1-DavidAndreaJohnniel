@@ -120,5 +120,27 @@ public class ArbolGenealogico {
            return resultado;
         }
     }
+    
+    public Lista opcionesTitulo(){
+        Lista titulos = this.hashTable.titulos();
+        return titulos;
+    }
+    
+    public String buscarTitulo(String titulo) {
+        Lista personasTitulo = this.hashTable.buscarTitulo(titulo);
+        
+        if (!personasTitulo.isEmpty()) {
+            String resultados = "";
+            
+            for (int i = 0; i < personasTitulo.getSize(); i++) {
+                String personaAct = (String) personasTitulo.getValor(i);
+                resultados += personaAct + "\n";
+            }
+            
+            return resultados;
+        } else {
+           return "No hay resultados";
+        }
+    }
 
 }

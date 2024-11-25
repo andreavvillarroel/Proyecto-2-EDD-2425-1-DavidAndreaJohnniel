@@ -7,6 +7,7 @@ package Interfaces;
 import ClasesPrincipales.ArbolGenealogico;
 import Funciones.Cargar;
 import Funciones.FileChooser;
+import Funciones.MostrarArbol;
 import javax.swing.JOptionPane;
 
 /**
@@ -113,7 +114,11 @@ public class Iniciar extends javax.swing.JFrame {
             arbolG.setHashTable(cargarJSON.getHashTable());
             arbolG.setNombreLinaje(cargarJSON.getNombreLinaje());
             
-            Menu menu = new Menu();
+            System.setProperty("org.graphstream.ui", "swing");
+            
+
+            MostrarArbol mostrar = new MostrarArbol(arbolG.getArbol());
+            mostrar.setVisible(true);
             this.dispose();
 //            cargarJSON.getArbol().mostrarArbolPorNiveles();
             //System.out.println(cargarJSON.getArbol().obtenerNivelMaximo());

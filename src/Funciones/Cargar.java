@@ -225,6 +225,7 @@ public class Cargar {
                mote = atributo.get("Known throughout as").getAsString();
             }else if(atributo.has("Held title")){
                 titulo = atributo.get("Held title").getAsString();
+                
             }else if(atributo.has("Wed to")){
                 esposa = atributo.get("Wed to").getAsString();
             }else if(atributo.has("Of eyes")){

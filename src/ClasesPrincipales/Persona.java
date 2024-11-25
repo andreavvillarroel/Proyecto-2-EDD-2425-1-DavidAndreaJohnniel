@@ -179,8 +179,5 @@ public class Persona {
         sb.append("\nComentarios de su Vida: ").append(comentariosVida);
         sb.append("\nComentarios de su Muerte: ").append(comentariosMuerte);
         return sb.toString();
-    }
-    
-    
-    
+    }   
 }

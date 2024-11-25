@@ -5,6 +5,9 @@
 package Interfaces;
 
 import ClasesPrincipales.Persona;
+import EDD.Arbol;
+import Funciones.MostrarArbol;
+import Funciones.MostrarDesc;
 import static Interfaces.Iniciar.arbolG;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.event.DocumentEvent;
@@ -169,17 +172,24 @@ public class BuscarPorNombre extends javax.swing.JFrame {
     }//GEN-LAST:event_inputNombreMouseClicked
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
-        
+
         resultado = arbolG.buscarNombre(resultado, inputNombre.getText());
         this.llenarResultados(resultado);
-//        for (int i = 0; i < resultado.length; i++) {
-//            modeloResultadosNombre.addElement(resultado[i].getNameUnique());
-//        }
+
     }//GEN-LAST:event_buscarActionPerformed
 
     private void verDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verDetalleActionPerformed
         String nombre = (String) resultadosNombre.getSelectedItem();
         resultadoBusqueda.setText(arbolG.getHashTable().buscar(nombre).toString());
+
+        Arbol arbolDescendientes = new Arbol();
+        arbolDescendientes.setRoot(arbolG.getArbol().buscarPorNombreClave(nombre));
+
+        System.setProperty("org.graphstream.ui", "swing");
+        MostrarDesc mostrar = new MostrarDesc(arbolDescendientes, this);
+        mostrar.setVisible(true);
+        this.dispose();
+
     }//GEN-LAST:event_verDetalleActionPerformed
 
     /**
