@@ -72,10 +72,11 @@ public class Iniciar extends javax.swing.JFrame {
                         .addGap(127, 127, 127))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, botonInicioLayout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(14, 14, 14))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, botonInicioLayout.createSequentialGroup()
-                        .addComponent(iniciar)
-                        .addGap(165, 165, 165))))
+                        .addGap(14, 14, 14))))
+            .addGroup(botonInicioLayout.createSequentialGroup()
+                .addGap(165, 165, 165)
+                .addComponent(iniciar)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         botonInicioLayout.setVerticalGroup(
             botonInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
